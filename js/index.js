@@ -1,4 +1,5 @@
 let start;
+let audio = new Audio("./audio/aud1.mp3");
 $("#start").on("click", function () {
   $("#stop").toggleClass("d-none");
   $("#start").toggleClass("d-none");
@@ -8,6 +9,8 @@ $("#start").on("click", function () {
     type: "GET",
     url: "https://v2.jokeapi.dev/joke/programming?format=json?safe-mode",
     success: (res) => {
+      console.table(res);
+      audio.play();
       let isi = ``;
       if (res.hasOwnProperty("setup")) {
         isi = /*html*/ `
@@ -31,6 +34,8 @@ $("#start").on("click", function () {
       type: "GET",
       url: "https://v2.jokeapi.dev/joke/programming?format=json?safe-mode",
       success: (res) => {
+        console.table(res);
+        audio.play();
         let isi = ``;
         if (res.hasOwnProperty("setup")) {
           isi = /*html*/ `
